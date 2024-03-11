@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from datapackage import Package
 import requests
 import openpyxl
 import csv
@@ -111,3 +112,8 @@ def delete_files(file_paths):
 
 files_to_delete = ['data/1.csv', 'archive/1.xlsx']
 delete_files(files_to_delete)
+
+package = Package()
+package.infer(r"data\output.csv")
+package.commit()
+package.save(r"datapackage.json")

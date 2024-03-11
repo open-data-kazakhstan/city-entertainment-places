@@ -1,0 +1,70 @@
+{
+    "profile": "tabular-data-package",
+    "resources": [
+        {
+            "path": "data\\output.csv",
+            "profile": "tabular-data-resource",
+            "name": "output",
+            "format": "csv",
+            "mediatype": "text/csv",
+            "encoding": "utf-8",
+            "schema": {
+                "fields": [
+                    {
+                        "name": "Regions",
+                        "type": "string",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Theaters",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Museums",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Cultural and leisure facilities",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Cinemas",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Libraries",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Concert organizations",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Parks",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Zoos",
+                        "type": "integer",
+                        "format": "default"
+                    },
+                    {
+                        "name": "Circuses",
+                        "type": "integer",
+                        "format": "default"
+                    }
+                ],
+                "missingValues": [
+                    ""
+                ]
+            }
+        }
+    ]
+}
