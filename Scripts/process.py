@@ -67,6 +67,38 @@ def clean_data(data):
     remove_empty_rows(data)
 
 
+def change_words_in_csv(input_file, output_file):
+    word_replacements = {
+        "Республика Казахстан": "The Republic Kazakhstan",
+        "Область": "Region",
+        "Акмолинская": "Akmola Region",
+        "Актюбинская": "Aktobe Region",
+        "Алматинская": "Almaty Region",
+        "Атырауская": "Atyrau Region",
+        "Западно-Казахстанская": "West Kazakhstan Region",
+        "Жамбылская": "Zhambyl Region",
+        "Область Жетісу": "Zhetysu Region",
+        "Карагандинская": "Karaganda Region",
+        "Костанайская": "Kostanay Region",
+        "Кызылординская": "Kyzylorda Region",
+        "Мангистауская": "Mangystau Region",
+        "Павлодарская": "Pavlodar Region",
+        "Северо-Казахстанская": "North Kazakhstan Region",
+        "Туркестанская": "Turkestan Region",
+        "Область Ұлытау": "Ulytau Region Region",
+        "Восточно-Казахстанская": "East Kazakhstan Region",
+        "г. Астана": "Astana city",
+        "г. Алматы": "Almaty city",
+        "г. Шымкент": "Shymkent city"
+    }
+
+    with open(input_file, 'r', encoding='utf-8') as f_in, open(output_file, 'w', encoding='utf-8') as f_out:
+        for line in f_in:
+            columns = line.strip().split(',')
+            modified_columns = [word_replacements.get(col, col) for col in columns]
+            f_out.write(','.join(modified_columns) + '\n')
+
+
 def main():
     url = "https://stat.gov.kz/ru/industries/social-statistics/stat-culture/publications/6115/"
 
@@ -93,7 +125,10 @@ def main():
     save_to_excel(table_data, cleaned_excel_file_path)
     save_to_csv(table_data, cleaned_csv_file_path)
 
+    change_words_in_csv('data/output.csv', 'data/output1.csv')
+
     print(f"Data extracted, cleaned, and saved to:\n- {cleaned_excel_file_path}\n- {cleaned_csv_file_path}")
+
 
 
 if __name__ == "__main__":
@@ -110,10 +145,10 @@ def delete_files(file_paths):
             print(f"Error deleting file '{file_path}': {e}")
 
 
-files_to_delete = ['data/1.csv', 'archive/1.xlsx']
+files_to_delete = ['data/1.csv', 'archive/1.xlsx', 'data/output.csv']
 delete_files(files_to_delete)
 
 package = Package()
-package.infer(r"data\output.csv")
+package.infer(r"data\output1.csv")
 package.commit()
 package.save(r"datapackage.json")

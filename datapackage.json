@@ -2,9 +2,9 @@
     "profile": "tabular-data-package",
     "resources": [
         {
-            "path": "data\\output.csv",
+            "path": "data\\output1.csv",
             "profile": "tabular-data-resource",
-            "name": "output",
+            "name": "output1",
             "format": "csv",
             "mediatype": "text/csv",
             "encoding": "utf-8",
