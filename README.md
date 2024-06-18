@@ -1,4 +1,8 @@
 # city-entertainment-places
+
+## Description
+Main output data is in the file `data/Entertainment-places-rate.csv` where number of entertainment places is amount of entartainment places and Entertainment-places-rate is amount of entartainment places for 1000 enhabitants
+
 ## Installation 
 
 Clone the repository
@@ -39,6 +43,7 @@ We processed the original data to bring them back to normal, and extracted sever
 
 * `information.xlsx` - contains information of 2022 year 
 * `datapackage.json` - contains all the key information about our dataset
+* `city-population` - contains population data from repository [city-population](https://github.com/open-data-kazakhstan/city-population)
 
 ## Scripts
 
